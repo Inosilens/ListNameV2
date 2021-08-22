@@ -1,31 +1,40 @@
-import React from "react";
-import "font-awesome/css/font-awesome.min.css";
+import React, { useEffect, useState } from "react";
+import { getListPersons } from "../services/getListPersons";
 
 export const TableBody = (props) => {
-  return <div>
-      <tbody>
-      {listname.map((item, i) => (
-          <tr>
-              <td key={item.name}>
-                  <span>Имя</span> {item.name}
-              </td>
-              <td key={item.familiya}>
-                  <span>Фамилия</span>
-                  {item.familiya}
-              </td>
-              <td>
-                  <i onClick={() => removeUser(i)} className="fas fa-trash-alt" />
-                  <i
-                      onClick={() => {
-                          getIndex(i);
-                          changeActive();
-                      }}
-                      className="fas fa-edit"
-                  />
-              </td>
-          </tr>
-      ))}
-      </tbody>
-  </div>;
-};
+  const [list, setList] = useState([]);
 
+
+
+  useEffect(() => {
+   getListPersons().then(data=>setList(data))
+  }, []);
+
+
+  if(list){
+      return (
+          <tbody>
+          {list.map((person, i) => (
+              <tr key={person.id}>
+                  <td >
+                      <span>Имя</span> {person.firstName}
+                  </td>
+                  <td >
+                      <span>Фамилия</span>
+                      {person.lastName}
+                  </td>
+                  <td>
+                      <i className="fas fa-trash-alt"/>
+                      <i
+
+                          className="fas fa-edit"
+                      />
+                  </td>
+              </tr>
+          ))}
+          </tbody>
+      );
+  }
+
+
+};

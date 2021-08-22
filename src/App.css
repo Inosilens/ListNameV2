@@ -44,30 +44,33 @@
   left: 0;
 }
 
-.resp-tab thead {
-  display: none;
-}
+@media screen and (max-width: 768px) {
+  .resp-tab thead {
+    display: none;
+  }
 
-.resp-tab tr {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
-}
+  .resp-tab tr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
 
-.resp-tab td {
-  margin: 0 -1px -1px 0;
-  padding-top: 35px;
-  position: relative;
-  width: 50%;
-}
+  .resp-tab td {
+    margin: 0 -1px -1px 0;
+    padding-top: 35px;
+    position: relative;
+    width: 50%;
+  }
 
-.resp-tab td span {
-  display: block;
+  .resp-tab td span {
+    display: block;
+  }
 }
-
-.resp-tab td {
-  width: 100%;
+@media screen and (max-width: 480px) {
+  .resp-tab td {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=App.css.map */
