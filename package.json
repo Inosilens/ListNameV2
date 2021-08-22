@@ -1,0 +1,42 @@
+{
+  "name": "weather",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Inosilens/ListNameV2.git",
+  "author": "Inosilens <pashin.andrey94@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@babel/preset-react": "^7.12.13",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.1.3",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "node-sass": "^6.0.1",
+    "prettier": "2.3.2",
+    "react": "^17.0.2",
+    "react-redux": "^7.2.4",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.1.1",
+    "redux-devtools-extension": "^2.13.9",
+    "router": "^1.3.5",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.50.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "scripts": {
+    "serve": "webpack serve --mode development",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "postcss-loader": "^6.1.1",
+    "react-dom": "^17.0.2",
+    "socket.io": "^4.1.3",
+    "strip-ansi": "^7.0.0"
+  }
+}
