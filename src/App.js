@@ -1,14 +1,12 @@
 import React from "react";
 import "./App.css";
-import {Table} from "./container/Table";
+import { Table } from "./container/Table";
 
 function App() {
   return (
-        <div className="App">
-            <Table/>
-        </div>
-
-
+    <div className="App">
+      <Table />
+    </div>
   );
 }
 

@@ -1,23 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { getListPersons } from "../services/getListPersons";
-import "font-awesome/css/font-awesome.min.css";
-import {PersonCart} from "./elements/PersonCart";
 
+import { PersonCart } from "./elements/PersonCart";
+import RedactionWindow from "./RedactPersonModal";
 
-export const TableBody = (props) => {
+export const TableBody = () => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
     getListPersons().then((data) => setList(data));
-  }, []);
+  }, [list]);
 
   if (list) {
-    return (
+    return (<>
       <tbody>
         {list.map((person, i) => (
+
           <PersonCart key={person.id} person={person} index={i} />
+
         ))}
       </tbody>
+
+        </>
     );
   }
 };

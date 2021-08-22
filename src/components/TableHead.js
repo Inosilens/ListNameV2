@@ -1,6 +1,6 @@
 import React from "react";
 
-export const TableHead = (props) => {
+export const TableHead = () => {
   return (
     <thead>
       <tr>
