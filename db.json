@@ -1,19 +1,9 @@
 {
   "persons": [
     {
-      "firstName": "выфв",
-      "lastName": "вфыв",
+      "firstName": "saa",
+      "lastName": "aaa",
       "id": 1
-    },
-    {
-      "firstName": "dasd",
-      "lastName": "dsa",
-      "id": 2
-    },
-    {
-      "firstName": "выфв",
-      "lastName": "выфв",
-      "id": 3
     }
   ]
 }
