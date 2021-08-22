@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getListPersons } from "../services/getListPersons";
-
 import { PersonCart } from "./elements/PersonCart";
-import RedactionWindow from "./RedactPersonModal";
 
 export const TableBody = () => {
   const [list, setList] = useState([]);
@@ -12,16 +10,14 @@ export const TableBody = () => {
   }, [list]);
 
   if (list) {
-    return (<>
-      <tbody>
-        {list.map((person, i) => (
-
-          <PersonCart key={person.id} person={person} index={i} />
-
-        ))}
-      </tbody>
-
-        </>
+    return (
+      <>
+        <tbody>
+          {list.map((person, i) => (
+            <PersonCart key={person.id} person={person} index={i} />
+          ))}
+        </tbody>
+      </>
     );
   }
 };

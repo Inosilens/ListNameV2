@@ -1,5 +1,6 @@
 import axios from "axios";
+import {BASE_URL} from "../helpers/contstants";
 
 export const addOnServer = (data) => {
-  return axios.post("http://localhost:3000/persons", data).then((r) => r.data);
+  return axios.post(BASE_URL, data).then((r) => r.data);
 };

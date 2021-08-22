@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { redactUser } from "../services/redactUser";
 
-export default function RedactionWindow({ activeRedact, setActiveRedact, id }) {
+export default function RedactionWindow({ firstName,lastName,activeRedact, setActiveRedact, id }) {
   const [changeFirstName, setChangeFirstName] = useState("");
   const [changeSecondName, setChangeSecondName] = useState("");
   const changeActive = () => {
@@ -23,17 +23,15 @@ export default function RedactionWindow({ activeRedact, setActiveRedact, id }) {
           <div className="modal__content__tittle">
             <h3> Изменение </h3>
           </div>
-
-          <a href="" onClick={changeActive}>
-            Назад к списку
-          </a>
           <form className="modal__content__input">
             <input
               onChange={getName}
+              defaultValue="321"
               value={changeFirstName}
               placeholder="Введите имя сотрудника"
             />
             <input
+                defaultValue={444}
               onChange={getSecondName}
               value={changeSecondName}
               placeholder="Введите фамилию сотрудника"

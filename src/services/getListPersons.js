@@ -1,4 +1,5 @@
+import {BASE_URL} from "../helpers/contstants";
 
 export const  getListPersons = () => {
-    return fetch("http://localhost:3000/persons").then(r=>r.json())
+    return fetch(BASE_URL).then(r=>r.json())
 }
