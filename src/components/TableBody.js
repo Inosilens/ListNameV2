@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getListPersons } from "../services/getListPersons";
 import { PersonCart } from "./elements/PersonCart";
 
-export const TableBody = () => {
+export const TableBody = ({redactNotification}) => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export const TableBody = () => {
       <>
         <tbody>
           {list.map((person, i) => (
-            <PersonCart key={person.id} person={person} index={i} />
+            <PersonCart redactNotification={redactNotification} key={person.id} person={person} index={i} />
           ))}
         </tbody>
       </>

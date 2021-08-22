@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { addOnServer } from "../services/addOnServer";
 
-export const ModalAddNewUser = ({ active, setActive }) => {
+export const ModalAddNewUser = ({
+  active,
+  setActive,
+  addNewUserNotification,
+}) => {
   const [firstName, setFirstName] = useState();
   const [secondName, setSecondName] = useState();
   const DATA = {
@@ -44,7 +48,8 @@ export const ModalAddNewUser = ({ active, setActive }) => {
         </form>
         <div className="modal__content_button">
           <button
-            onClick={() => {
+            onClick={(e) => {
+              addNewUserNotification(e);
               changeActive();
               addOnServer(DATA);
             }}

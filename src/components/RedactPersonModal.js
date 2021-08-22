@@ -2,16 +2,22 @@ import React from "react";
 import { useState } from "react";
 import { redactUser } from "../services/redactUser";
 
-export default function RedactionWindow({ firstName,lastName,activeRedact, setActiveRedact, id }) {
+export const RedactionWindow = ({
+  addNotification,
+  activeRedact,
+  setActiveRedact,
+  id,
+}) => {
   const [changeFirstName, setChangeFirstName] = useState("");
   const [changeSecondName, setChangeSecondName] = useState("");
   const changeActive = () => {
+    setChangeFirstName("");
+    setChangeSecondName("");
     setActiveRedact(!activeRedact);
   };
+
   const getName = (e) => setChangeFirstName(e.target.value);
   const getSecondName = (e) => setChangeSecondName(e.target.value);
-
-
 
   return (
     <>
@@ -26,12 +32,10 @@ export default function RedactionWindow({ firstName,lastName,activeRedact, setAc
           <form className="modal__content__input">
             <input
               onChange={getName}
-              defaultValue="321"
               value={changeFirstName}
               placeholder="Введите имя сотрудника"
             />
             <input
-                defaultValue={444}
               onChange={getSecondName}
               value={changeSecondName}
               placeholder="Введите фамилию сотрудника"
@@ -40,7 +44,11 @@ export default function RedactionWindow({ firstName,lastName,activeRedact, setAc
           <div className="modal__content_button">
             <button
               disabled={!changeFirstName || !changeSecondName}
-              onClick={() => redactUser(id, changeFirstName, changeSecondName)}
+              onClick={(e) => {
+                addNotification(e);
+                changeActive();
+                redactUser(id, changeFirstName, changeSecondName);
+              }}
               type="submit"
             >
               Изменить сотрудника
@@ -50,4 +58,4 @@ export default function RedactionWindow({ firstName,lastName,activeRedact, setAc
       </div>
     </>
   );
-}
+};

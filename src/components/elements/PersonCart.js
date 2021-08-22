@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { deleteUser } from "../../services/deleteUser";
-import RedactionWindow from "../RedactPersonModal";
-export const PersonCart = ({ person, index }) => {
+import { RedactionWindow } from "../RedactPersonModal";
+import NotificationSystem from "react-notification-system";
+export const PersonCart = ({ person, redactNotification }) => {
   const [activeRedact, setActiveRedact] = useState(false);
   const removeUser = (id) => {
     deleteUser(id);
@@ -30,9 +31,9 @@ export const PersonCart = ({ person, index }) => {
           />
         </td>
       </tr>
+
       <RedactionWindow
-        firstName={person.firstName}
-        lastName={person.lastName}
+        addNotification={redactNotification}
         id={person.id}
         activeRedact={activeRedact}
         setActiveRedact={setActiveRedact}
