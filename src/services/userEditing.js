@@ -1,8 +1,11 @@
-import axios from "axios";
+import axios from 'axios'
 import {BASE_URL} from "../helpers/contstants";
 
-export const addOnServer = (data) => {
-    return axios.post(BASE_URL, data).then((r) => r.data)
+export const userEditing = (id, firstname, secondName) => {
+    return axios.put(BASE_URL + id, {
+        firstName: firstname,
+        lastName: secondName
+    })
         .catch((error) => {
             if (error.response) {
             } else if (error.request) {
@@ -11,5 +14,5 @@ export const addOnServer = (data) => {
                 console.log('Error', error.message);
             }
             console.log(error.config);
-        });
-};
+        })
+}

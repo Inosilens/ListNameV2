@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {addOnServer} from "../services/addOnServer";
+import {addNewUser} from "../services/addNewUser";
 import {addNewUserNotification} from "../notifications";
 
 export const ModalAddNewUser = ({
@@ -56,7 +56,7 @@ export const ModalAddNewUser = ({
                             addNewUserNotification(e);
                             changeActive();
                             setResolve(true)
-                            addOnServer(DATA).then(() => setResolve(false))
+                            addNewUser(DATA).then(() => setResolve(false))
                         }}
                         disabled={!firstName || !secondName}
                         type="button"

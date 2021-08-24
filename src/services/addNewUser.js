@@ -1,11 +1,8 @@
-import axios from 'axios'
+import axios from "axios";
 import {BASE_URL} from "../helpers/contstants";
 
-export const redactUser = (id, firstname, secondname) => {
-    return axios.put(BASE_URL + id, {
-        firstName: firstname,
-        lastName: secondname
-    })
+export const addNewUser = (data) => {
+    return axios.post(BASE_URL, data).then((r) => r.data)
         .catch((error) => {
             if (error.response) {
             } else if (error.request) {
@@ -14,5 +11,5 @@ export const redactUser = (id, firstname, secondname) => {
                 console.log('Error', error.message);
             }
             console.log(error.config);
-        })
-}
+        });
+};

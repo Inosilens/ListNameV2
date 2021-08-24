@@ -1,7 +1,7 @@
 import React from "react";
 import {useState} from "react";
-import {redactUser} from "../services/redactUser";
 import {redactNotification} from "../notifications";
+import {userEditing} from "../services/userEditing";
 
 export const RedactionWindow = ({
                                     firstName,
@@ -58,7 +58,7 @@ export const RedactionWindow = ({
                                 redactNotification(e);
                                 changeActive();
                                 setResolve(true)
-                                redactUser(id, changeFirstName, changeSecondName).then(() => setResolve(false))
+                                userEditing(id, changeFirstName, changeSecondName).then(() => setResolve(false))
 
                             }}
                             type="submit"
