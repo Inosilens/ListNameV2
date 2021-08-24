@@ -7,8 +7,9 @@ export const ModalAddNewUser = ({
                                     active,
                                     setActive,
                                 }) => {
-    const [firstName, setFirstName] = useState();
-    const [secondName, setSecondName] = useState();
+    const [firstName, setFirstName] = useState("");
+    const [secondName, setSecondName] = useState("");
+
     const DATA = {
         firstName: firstName,
         lastName: secondName,
@@ -37,11 +38,13 @@ export const ModalAddNewUser = ({
                 </div>
                 <form className="modal__content__input">
                     <input
+                        maxLength="10"
                         onChange={getName}
                         value={firstName}
                         placeholder="Введите имя сотрудника"
                     />
                     <input
+                        maxLength="10"
                         onChange={getSecondName}
                         value={secondName}
                         placeholder="Введите фамилию сотрудника"
@@ -53,7 +56,7 @@ export const ModalAddNewUser = ({
                             addNewUserNotification(e);
                             changeActive();
                             setResolve(true)
-                            addOnServer(DATA).then(()=>setResolve(false))
+                            addOnServer(DATA).then(() => setResolve(false))
                         }}
                         disabled={!firstName || !secondName}
                         type="button"

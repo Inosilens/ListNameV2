@@ -33,11 +33,13 @@ export const RedactionWindow = ({   firstName,
                     </div>
                     <form className="modal__content__input">
                         <input
+                            maxLength="10"
                             defaultValue={firstName}
                             onChange={getName}
                             placeholder="Введите имя сотрудника"
                         />
                         <input
+                            maxLength="10"
                             onChange={getSecondName}
                             defaultValue={lastName}
                             placeholder="Введите фамилию сотрудника"
