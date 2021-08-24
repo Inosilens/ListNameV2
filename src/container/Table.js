@@ -6,6 +6,7 @@ import NotificationSystem from "react-notification-system";
 
 export const Table = () => {
   const [activeNewUser, setActiveNewUser] = useState(false);
+    const [resolve,setResolve] = useState(false)
   const notificationSystem = React.createRef();
   const redactNotification = (event) => {
     event.preventDefault();
@@ -28,12 +29,13 @@ export const Table = () => {
     <div>
       <table className="resp-tab">
         <TableHead />
-        <TableBody redactNotification={redactNotification} />
+        <TableBody resolve={resolve} setResolve={setResolve} redactNotification={redactNotification} />
       </table>
       <ModalAddNewUser
         addNewUserNotification={addNewUserNotification}
         active={activeNewUser}
         setActive={setActiveNewUser}
+        setResolve={setResolve}
       />
       <button id="button__add" onClick={() => setActiveNewUser(true)}>
         Добавить{" "}

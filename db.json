@@ -2,23 +2,8 @@
   "persons": [
     {
       "firstName": "dsad",
-      "lastName": "dsad",
-      "id": 2
-    },
-    {
-      "firstName": "dsad",
-      "lastName": "dsaddsad",
-      "id": 3
-    },
-    {
-      "firstName": "44",
-      "lastName": "444",
-      "id": 4
-    },
-    {
-      "firstName": "3123",
-      "lastName": "32133",
-      "id": 5
+      "lastName": "dsadd",
+      "id": 1
     }
   ]
 }

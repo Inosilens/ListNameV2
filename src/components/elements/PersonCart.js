@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { deleteUser } from "../../services/deleteUser";
 import { RedactionWindow } from "../RedactPersonModal";
-export const PersonCart = ({ person, redactNotification }) => {
+export const PersonCart = ({ setResolve, person, redactNotification }) => {
   const [activeRedact, setActiveRedact] = useState(false);
   const removeUser = (id) => {
-    deleteUser(id);
+    deleteUser(id).then(()=>setResolve(false));
   };
 
   return (
@@ -26,16 +26,18 @@ export const PersonCart = ({ person, redactNotification }) => {
           />
           <FontAwesomeIcon
             onClick={() => {
-              removeUser(person.id);
+                setResolve(true)
+              removeUser(person.id)
+
             }}
             icon={faTrash}
           />
         </td>
       </tr>
-
       <RedactionWindow
         addNotification={redactNotification}
         id={person.id}
+        setResolve={setResolve}
         activeRedact={activeRedact}
         setActiveRedact={setActiveRedact}
       />
