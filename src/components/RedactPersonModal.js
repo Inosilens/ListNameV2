@@ -1,10 +1,11 @@
 import React from "react";
 import {useState} from "react";
 import {redactUser} from "../services/redactUser";
+import { redactNotification} from "../notifications";
 
-export const RedactionWindow = ({
+export const RedactionWindow = ({   firstName,
+                                    lastName,
                                     setResolve,
-                                    addNotification,
                                     activeRedact,
                                     setActiveRedact,
                                     id,
@@ -32,21 +33,20 @@ export const RedactionWindow = ({
                     </div>
                     <form className="modal__content__input">
                         <input
+                            defaultValue={firstName}
                             onChange={getName}
-                            value={changeFirstName}
                             placeholder="Введите имя сотрудника"
                         />
                         <input
                             onChange={getSecondName}
-                            value={changeSecondName}
+                            defaultValue={lastName}
                             placeholder="Введите фамилию сотрудника"
                         />
                     </form>
                     <div className="modal__content_button">
                         <button
-                            disabled={!changeFirstName || !changeSecondName}
                             onClick={(e) => {
-                                addNotification(e);
+                                redactNotification(e);
                                 changeActive();
                                 setResolve(true)
                                 redactUser(id, changeFirstName, changeSecondName).then(()=>setResolve(false))

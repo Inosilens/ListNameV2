@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import {addOnServer} from "../services/addOnServer";
+import {addNewUserNotification} from "../notifications";
 
 export const ModalAddNewUser = ({
                                     setResolve,
                                     active,
                                     setActive,
-                                    addNewUserNotification,
                                 }) => {
     const [firstName, setFirstName] = useState();
     const [secondName, setSecondName] = useState();
