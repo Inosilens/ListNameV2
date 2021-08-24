@@ -1,25 +1,32 @@
 import React from "react";
 import {useState} from "react";
 import {redactUser} from "../services/redactUser";
-import { redactNotification} from "../notifications";
+import {redactNotification} from "../notifications";
 
-export const RedactionWindow = ({   firstName,
+export const RedactionWindow = ({
+                                    firstName,
                                     lastName,
                                     setResolve,
                                     activeRedact,
                                     setActiveRedact,
                                     id,
                                 }) => {
-    const [changeFirstName, setChangeFirstName] = useState("");
-    const [changeSecondName, setChangeSecondName] = useState("");
+    const [changeFirstName, setChangeFirstName] = useState(firstName);
+    const [changeSecondName, setChangeSecondName] = useState(lastName);
     const changeActive = () => {
         setChangeFirstName("");
         setChangeSecondName("");
         setActiveRedact(!activeRedact);
     };
 
-    const getName = (e) => setChangeFirstName(e.target.value);
-    const getSecondName = (e) => setChangeSecondName(e.target.value);
+    const getName = (e) => {
+        setChangeFirstName(e.target.value)
+
+
+    }
+    const getSecondName = (e) => {
+        setChangeSecondName(e.target.value);
+    }
 
     return (
         <>
@@ -51,7 +58,7 @@ export const RedactionWindow = ({   firstName,
                                 redactNotification(e);
                                 changeActive();
                                 setResolve(true)
-                                redactUser(id, changeFirstName, changeSecondName).then(()=>setResolve(false))
+                                redactUser(id, changeFirstName, changeSecondName).then(() => setResolve(false))
 
                             }}
                             type="submit"

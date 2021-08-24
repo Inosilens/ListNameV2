@@ -34,17 +34,18 @@ export const PersonCart = ({setResolve, person, redactNotification}) => {
                         }}
                         icon={faTrash}
                     />
+                    <RedactionWindow
+                        firstName={person.firstName}
+                        lastName={person.lastName}
+                        addNotification={redactNotification}
+                        id={person.id}
+                        setResolve={setResolve}
+                        activeRedact={activeRedact}
+                        setActiveRedact={setActiveRedact}
+                    />
                 </td>
             </tr>
-            <RedactionWindow
-                firstName={person.firstName}
-                lastName={person.lastName}
-                addNotification={redactNotification}
-                id={person.id}
-                setResolve={setResolve}
-                activeRedact={activeRedact}
-                setActiveRedact={setActiveRedact}
-            />
+
         </>
     );
 };
